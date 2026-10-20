@@ -1,0 +1,10 @@
+# Senha do MySQL de cada computador (nunca versionar)
+config/local.php
+
+# Arquivos do sistema operacional e de editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
