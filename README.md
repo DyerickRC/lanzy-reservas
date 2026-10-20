@@ -133,7 +133,7 @@ lanzy-reservas/
 ## Autores
 
 - **Dyérick Reis** — [@DyerickRC](https://github.com/DyerickRC)
-- **Vinicius Silva**
-- **Nicolas Cantuario**
+- **Vinicius Silva** — [@vini323](https://github.com/vini323)
+- **Nicolas Cantuario** — [@NicolasSamuel0](https://github.com/NicolasSamuel0)
 
 Projeto acadêmico — UNIPAC Uberlândia, 2026.
