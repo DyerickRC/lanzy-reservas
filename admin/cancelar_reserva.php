@@ -9,5 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$reservaId]);
 }
 
-header('Location: index.php?cancelada=1');
+$busca = trim((string)val($_POST, 'busca'));
+header('Location: index.php?cancelada=1' . ($busca !== '' ? '&busca=' . urlencode($busca) : ''));
 exit;

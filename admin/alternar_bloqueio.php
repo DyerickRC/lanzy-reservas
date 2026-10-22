@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $usuarioId = (int)val($_POST, 'usuario_id', 0);
+$busca = trim((string)val($_POST, 'busca'));
+$comBusca = $busca !== '' ? '&busca=' . urlencode($busca) : '';
 
 $stmt = $pdo->prepare("SELECT id, bloqueado FROM usuarios WHERE id = ? AND tipo = 'cliente'");
 $stmt->execute([$usuarioId]);
@@ -21,7 +23,7 @@ if (!$usuario) {
 
 if ($usuario['bloqueado']) {
     $pdo->prepare('UPDATE usuarios SET bloqueado = 0 WHERE id = ?')->execute([$usuarioId]);
-    header('Location: usuarios.php?desbloqueado=1');
+    header('Location: usuarios.php?desbloqueado=1' . $comBusca);
     exit;
 }
 
@@ -30,5 +32,5 @@ $pdo->prepare('UPDATE usuarios SET bloqueado = 1 WHERE id = ?')->execute([$usuar
 // Libera os horários que o cliente bloqueado ainda ocupava
 $canceladas = cancelarReservasAtivas($pdo, 'usuario_id', $usuarioId);
 
-header('Location: usuarios.php?bloqueado=1&canceladas=' . $canceladas);
+header('Location: usuarios.php?bloqueado=1&canceladas=' . $canceladas . $comBusca);
 exit;

@@ -176,6 +176,23 @@ function chipStatus($status) {
     return '<span class="lz-chip ' . $classe . '"><i class="bi ' . $icone . '"></i> ' . $rotulo . '</span>';
 }
 
+// Texto digitado na busca (limitado) e o padrão LIKE correspondente, com % e _ tratados como texto
+function termoBusca() {
+    $busca = trim(mb_substr((string)(isset($_GET['busca']) ? $_GET['busca'] : ''), 0, 100));
+    return [$busca, '%' . addcslashes($busca, '%_\\') . '%'];
+}
+
+function formBusca($busca, $placeholder) {
+    return '<form method="GET" class="lz-search" role="search">'
+        . '<div class="lz-field flex-grow-1">'
+        . '<i class="bi bi-search lz-field-icon"></i>'
+        . '<input type="search" name="busca" class="lz-input" maxlength="100" placeholder="' . e($placeholder) . '" value="' . e($busca) . '" aria-label="' . e($placeholder) . '">'
+        . '</div>'
+        . '<button type="submit" class="lz-btn lz-btn-primary">Buscar</button>'
+        . ($busca !== '' ? '<a href="?" class="lz-btn lz-btn-ghost">Limpar</a>' : '')
+        . '</form>';
+}
+
 function chipCorujao() {
     return '<span class="lz-chip lz-chip-night"><i class="bi bi-moon-stars"></i> Corujão</span>';
 }

@@ -14,6 +14,12 @@ if (!$estacao || $estacao['status'] !== 'disponivel') {
     exit;
 }
 
+// Procura: conta uma visualização por sessão e estação (o admin não conta)
+if (val($_SESSION, 'usuario_tipo') !== 'admin' && empty($_SESSION['vistas'][$estacao['id']])) {
+    $_SESSION['vistas'][$estacao['id']] = true;
+    $pdo->prepare('UPDATE estacoes SET visualizacoes = visualizacoes + 1 WHERE id = ?')->execute([$estacao['id']]);
+}
+
 $erro = val($_SESSION, 'reserva_erro');
 $antigo = val($_SESSION, 'reserva_antigo', []);
 unset($_SESSION['reserva_erro'], $_SESSION['reserva_antigo']);

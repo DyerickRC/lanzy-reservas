@@ -32,6 +32,7 @@ Projeto acadêmico desenvolvido na **UNIPAC Uberlândia** (2026), feito em **PHP
 - Lista de todas as reservas, com cancelamento.
 - CRUD de estações: cadastrar, editar (nome, marca, valor, configuração), colocar em manutenção, desativar e excluir.
 - Gestão de clientes com total gasto e **bloqueio**: o cliente bloqueado não consegue entrar e tem as reservas futuras canceladas.
+- **Analytics** com filtro de período (7, 30, 90 dias, 12 meses ou tudo) e comparação com o período anterior: faturamento por dia/mês (PCs × consoles), horas vendidas, ticket médio, horas com movimento na loja, novos clientes por mês, mapa de calor do horário de pico, faturamento por dia da semana, corujão e descontos concedidos por faixa, ranking de máquinas com procura e conversão, melhores clientes, tempo de cada cliente por máquina, cancelamentos e exportação das reservas em CSV.
 
 ## Destaques técnicos
 
@@ -89,6 +90,7 @@ Projeto acadêmico desenvolvido na **UNIPAC Uberlândia** (2026), feito em **PHP
 2. No phpMyAdmin, importe `database/schema.sql`. Ele cria o banco `lanzy_reservas`, as 3 tabelas, 6 estações de exemplo e o administrador.
 3. Por padrão a conexão usa `root` sem senha. Se o seu MySQL tiver senha, copie `config/local.exemplo.php` para `config/local.php` e coloque a senha lá (esse arquivo não é versionado).
 4. Acesse `http://localhost/lanzy-reservas/`.
+5. (Opcional) Para ver o Analytics com movimento, importe `database/dados_demonstracao.sql`: cerca de 6 meses de reservas fictícias de 40 clientes `@demo.lanzy`. Para apagar tudo depois, use `database/remover_demonstracao.sql`.
 
 Também dá para usar o servidor embutido do PHP, de dentro da pasta do projeto:
 

@@ -21,6 +21,7 @@ CREATE TABLE estacoes (
     marca VARCHAR(50) DEFAULT NULL,
     descricao VARCHAR(255) DEFAULT NULL,
     valor_hora DECIMAL(6,2) NOT NULL DEFAULT 0,
+    visualizacoes INT NOT NULL DEFAULT 0,
     status ENUM('disponivel', 'manutencao', 'inativa') NOT NULL DEFAULT 'disponivel',
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

@@ -8,6 +8,9 @@
 </footer>
 <?php endif; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<?php foreach (isset($scriptsExtras) ? $scriptsExtras : [] as $script): ?>
+<script src="<?= e($script) ?>"></script>
+<?php endforeach; ?>
 <script src="<?= $basePath ?>assets/js/script.js?v=5"></script>
 </body>
 </html>

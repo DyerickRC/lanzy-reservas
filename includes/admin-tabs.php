@@ -1,6 +1,7 @@
 <?php
 $abasAdmin = [
     'index.php' => ['Visão geral', 'bi-speedometer2'],
+    'analytics.php' => ['Analytics', 'bi-graph-up-arrow'],
     'estacoes.php' => ['Estações', 'bi-pc-display'],
     'usuarios.php' => ['Clientes', 'bi-people'],
 ];
